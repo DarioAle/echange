@@ -13,16 +13,11 @@ class _IdentityState extends State<Identity> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [0.5, 0.9],
-              colors: [
-                Color.fromRGBO(33, 66, 85, 1.0), 
-                Colors.black
-              ]
-          )
-        ),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0.7, 0.9],
+                colors: [Color.fromRGBO(129, 178, 154, 1.0), Colors.white12])),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
@@ -30,8 +25,7 @@ class _IdentityState extends State<Identity> {
             children: [
               Padding(
                   padding: EdgeInsets.only(top: 50),
-                  child:
-                      Image(image: AssetImage('assets/images/logo_claro.png'))),
+                  child: Image(image: AssetImage('assets/images/logo.png'))),
               Row(children: [
                 Expanded(
                   child: Padding(

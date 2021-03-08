@@ -22,13 +22,12 @@ class MyApp extends StatelessWidget {
         home: new SplashScreen(
           seconds: 2,
           navigateAfterSeconds: Identity(),
-          image: new Image.asset('assets/images/logo_claro.png'),
           photoSize: 200,
           gradientBackground: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              stops: [0.5, 0.9],
-              colors: [Color.fromRGBO(33, 66, 85, 1.0), Colors.black]),
+              stops: [0.7, 0.9],
+              colors: [Color.fromRGBO(129, 178, 154, 1.0), Colors.white12]),
         ));
   }
 }
