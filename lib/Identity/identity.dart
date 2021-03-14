@@ -1,3 +1,5 @@
+import 'package:echange/Identity/log_in.dart';
+import 'package:echange/Identity/register.dart';
 import 'package:flutter/material.dart';
 
 class Identity extends StatefulWidget {
@@ -12,12 +14,7 @@ class _IdentityState extends State<Identity> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.7, 0.9],
-                colors: [Color.fromRGBO(129, 178, 154, 1.0), Colors.white12])),
+        color: Color.fromRGBO(129, 178, 154, 1.0),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
@@ -25,7 +22,12 @@ class _IdentityState extends State<Identity> {
             children: [
               Padding(
                   padding: EdgeInsets.only(top: 50),
-                  child: Image(image: AssetImage('assets/images/logo.png'))),
+                  child: Image(
+                    image: AssetImage('assets/images/plant.png'),
+                    height: 200,
+                  )),
+              Text("E-change!",
+                  style: TextStyle(color: Colors.white, fontSize: 50)),
               Row(children: [
                 Expanded(
                   child: Padding(
@@ -35,16 +37,14 @@ class _IdentityState extends State<Identity> {
                           borderRadius: BorderRadius.circular(10)),
                       height: 50,
                       elevation: 2,
-                      color: Theme.of(context).buttonColor,
+                      color: Color.fromRGBO(61, 64, 91, 1),
                       child: Text(
-                        "REGISTRATE",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(fontWeight: FontWeight.bold),
+                        "Registrate",
+                        style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
-                        print("register");
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Register()));
                       },
                     ),
                   ),
@@ -59,18 +59,12 @@ class _IdentityState extends State<Identity> {
                           borderRadius: BorderRadius.circular(10)),
                       height: 50,
                       elevation: 2,
-                      color: Theme.of(context).buttonColor,
-                      child: Text(
-                        "INGRESA",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
+                      color: Color.fromRGBO(61, 64, 91, 1),
+                      child: Text("Ingresa",
+                          style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        print("there is something");
-                        // Navigator.of(context).push(
-                        //     MaterialPageRoute(builder: (context) => LogIn()));
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => LogIn()));
                       },
                     ),
                   ),

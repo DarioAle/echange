@@ -20,14 +20,18 @@ class MyApp extends StatelessWidget {
         ),
         // home: Home(title: APP_TITLE),
         home: new SplashScreen(
-          seconds: 2,
+          seconds: 5,
+          title: Text(
+            "E-change!",
+            style: TextStyle(color: Colors.white, fontSize: 50),
+          ),
+          image: Image(
+            image: AssetImage('assets/images/plant.png'),
+            height: 200,
+          ),
           navigateAfterSeconds: Identity(),
           photoSize: 200,
-          gradientBackground: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [0.7, 0.9],
-              colors: [Color.fromRGBO(129, 178, 154, 1.0), Colors.white12]),
+          backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
         ));
   }
 }
