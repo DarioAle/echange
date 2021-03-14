@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  auth_buttons: ^1.0.0
   splashscreen:
 
 
@@ -58,7 +59,22 @@ flutter:
     - assets/images/logo.png
     - assets/images/logo_claro.png
     - assets/images/background-splash.jpg
-    - assets/images/plant.svg
+    - assets/images/plant.png
+    - assets/images/add_blue.png
+    - assets/images/add.png
+    - assets/images/check.png
+    - assets/images/close.png
+    - assets/images/edit.png
+    - assets/images/heart_outlined.png
+    - assets/images/heart.png
+    - assets/images/trash.png
+
+  # fonts:
+  #   - family: Titillium_Web
+  #     fonts:
+  #       -asset: assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf
+
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -81,8 +97,8 @@ flutter:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
+    # - family: Trajan Pro
+    #   fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
