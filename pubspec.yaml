@@ -67,6 +67,14 @@ flutter:
     - assets/images/heart_outlined.png
     - assets/images/heart.png
     - assets/images/trash.png
+    - assets/images/woman.png
+    - assets/images/plant_colored.png
+    - assets/images/Prospects.png
+    - assets/images/relationship.png
+    - assets/images/love.png
+    - assets/images/configuration.png
+    - assets/images/logout.png
+
 
   # fonts:
   #   - family: Titillium_Web

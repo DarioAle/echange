@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key key}) : super(key: key);
-
+// TODO: Add personal from app storage (name)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(244, 241, 222, 1),
       appBar: AppBar(
         title: Text("Profile"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
-          ),
-        ],
+        backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
       ),
       body: Padding(
         padding: EdgeInsets.all(24.0),
@@ -25,15 +21,16 @@ class Profile extends StatelessWidget {
                 Container(
                   height: 150,
                   child: CircleAvatar(
+                    backgroundColor: Color.fromRGBO(242, 204, 143, 1),
                     child: Image.asset("assets/images/woman.png"),
-                    minRadius: 40,
-                    maxRadius: 80,
+                    minRadius: 60,
+                    maxRadius: 100,
                   ),
                 ),
                 SizedBox(
                   height: 16,
                 ),
-                Text("Margarita"),
+                Text("Margarita Perez"),
                 SizedBox(
                   height: 8,
                 ),
@@ -42,40 +39,70 @@ class Profile extends StatelessWidget {
                   height: 16,
                 ),
                 ListTile(
-                  title: Text("cart"),
-                  leading: Icon(Icons.shopping_cart),
+                  title: Text("Mis items"),
+                  leading: Image.asset(
+                    "assets/images/plant_colored.png",
+                    height: 50,
+                  ),
+                  minVerticalPadding: 20,
                   onTap: () {},
                 ),
-                ListTile(
-                  title: Text("Wishes"),
-                  leading: Icon(Icons.thumb_up),
-                  onTap: () {},
+                Divider(
+                  color: Colors.grey,
                 ),
                 ListTile(
-                  title: Text("His"),
-                  leading: Icon(Icons.store),
+                  title: Text("Matches"),
+                  leading: Image.asset(
+                    "assets/images/relationship.png",
+                    height: 50,
+                  ),
                   onTap: () {},
                 ),
+                Divider(
+                  color: Colors.grey,
+                ),
                 ListTile(
-                  title: Text("set"),
-                  leading: Icon(Icons.settings),
+                  title: Text("Prospectos"),
+                  leading: Image.asset(
+                    "assets/images/Prospects.png",
+                    height: 50,
+                  ),
+                  onTap: () {},
+                ),
+                Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: Text("Favoritos"),
+                  leading: Image.asset(
+                    "assets/images/love.png",
+                    height: 50,
+                  ),
+                  onTap: () {},
+                ),
+                Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: Text("Configuración de cuenta"),
+                  leading: Image.asset(
+                    "assets/images/configuration.png",
+                    height: 50,
+                  ),
+                  onTap: () {},
+                ),
+                Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: Text("Cerrar sesión"),
+                  leading: Image.asset(
+                    "assets/images/logout.png",
+                    height: 50,
+                  ),
                   onTap: () {},
                 ),
               ],
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  Expanded(
-                    child: RaisedButton(
-                      child: Text("Logout"),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              ),
             ),
           ],
         ),
