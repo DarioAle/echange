@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Profile extends StatelessWidget {
   const Profile({Key key}) : super(key: key);
 // TODO: Add personal from app storage (name)
+// TODO: Add navigaton onclick for each List tile
   @override
   Widget build(BuildContext context) {
     return Scaffold(
