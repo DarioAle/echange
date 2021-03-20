@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Identity/identity.dart';
+import 'home/home.dart';
 import 'utils/constants.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -17,14 +18,20 @@ class MyApp extends StatelessWidget {
           cardColor: SECONDARY_COLOR,
           selectedRowColor: THIRD_COLOR,
         ),
-        // home: Home(title: APP_TITLE),
+        // home: Home(),
         home: new SplashScreen(
-          seconds: 2,
+          seconds: 5,
+          title: Text(
+            "E-change!",
+            style: TextStyle(color: Colors.white, fontSize: 50),
+          ),
+          image: Image(
+            image: AssetImage('assets/images/plant.png'),
+            height: 200,
+          ),
           navigateAfterSeconds: Identity(),
-          image: new Image.asset('assets/images/plant.png'),
           photoSize: 200,
-          backgroundColor : Color(0xFF81B29A)
-        )
-    );
+          backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
+        ));
   }
 }
