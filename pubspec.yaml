@@ -54,9 +54,7 @@ flutter:
 
   assets:
     - assets/images/app_icon.png
-    - assets/images/logo.png
-    - assets/images/logo_claro.png
-    - assets/images/background-splash.jpg
+    - assets/images/plant.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

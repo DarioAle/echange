@@ -12,26 +12,26 @@ class _IdentityState extends State<Identity> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [0.5, 0.9],
-              colors: [
-                Color.fromRGBO(33, 66, 85, 1.0), 
-                Colors.black
-              ]
-          )
-        ),
+        color: Color(0xFF81B29A),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                  padding: EdgeInsets.only(top: 50),
-                  child:
-                      Image(image: AssetImage('assets/images/logo_claro.png'))),
+                padding: EdgeInsets.only(top: 50),
+                child: Column(
+                  children: [
+                    Image(image: AssetImage('assets/images/plant.png')),
+                    Text(
+                      "E-change!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 35),
+                    )
+                  ],
+                ),
+              ),
               Row(children: [
                 Expanded(
                   child: Padding(
