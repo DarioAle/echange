@@ -74,6 +74,11 @@ flutter:
     - assets/images/love.png
     - assets/images/configuration.png
     - assets/images/logout.png
+    - assets/clothes/vestido1.jpg
+    - assets/clothes/vestido2.jpg
+    - assets/clothes/vestido3.jpg
+    - assets/clothes/falda1.jpg
+    - assets/clothes/falda2.jpg
 
 
   # fonts:
