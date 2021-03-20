@@ -1,7 +1,10 @@
 import 'package:echange/menu/profile.dart';
+import 'package:echange/utils/custom_app_bar.dart';
+import 'package:echange/utils/item_card.dart';
 import 'package:flutter/material.dart';
 
-import 'filter_buttons.dart';
+import 'filter_bar.dart';
+import '../utils/mock_clothes.dart' as mockData;
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -27,68 +30,37 @@ class _HomeState extends State<Home> {
         endDrawer: new Drawer(
           child: Profile(),
         ),
-        appBar: AppBar(
-          leading: Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Image.asset('assets/images/plant.png')),
-          backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
-        ),
+        appBar: customAppBar,
         body: ListView(
+          scrollDirection: Axis.vertical,
           children: [
-            ButtonBar(
-              layoutBehavior: ButtonBarLayoutBehavior.constrained,
-              alignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FilterButtons(
-                  categoryName: "Talla",
-                  items: ["S", "M", "L", "XL"],
-                  selectedValue: sizeValue,
-                  onChange: (String value) {
-                    print("changed to $value");
-                    setState(() {
-                      sizeValue = value;
-                    });
-                  },
-                ),
-                FilterButtons(
-                  categoryName: "Categoría",
-                  items: ["Vestidos", "Bottoms", "Zapatos", "Accesorios"],
-                  selectedValue: categoryValue,
-                  onChange: (String value) {
-                    print("changed to $value");
-                    setState(() {
-                      categoryValue = value;
-                    });
-                  },
-                ),
-                FilterButtons(
-                  categoryName: "Estado",
-                  items: [
-                    "Nuevo",
-                    "Usado",
-                  ],
-                  selectedValue: stateValue,
-                  onChange: (String value) {
-                    print("changed to $value");
-                    setState(() {
-                      stateValue = value;
-                    });
-                  },
-                ),
-                FilterButtons(
-                  categoryName: "Distancia",
-                  items: ["3km", "5km", "10km", "13km"],
-                  selectedValue: distanceValue,
-                  onChange: (String value) {
-                    print("changed to $value");
-                    setState(() {
-                      distanceValue = value;
-                    });
-                  },
-                )
-              ],
+            FilterBar(categoryValue, sizeValue, colorValue, stateValue,
+                distanceValue),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: ScrollPhysics(),
+              itemCount: mockData.MOCK.length,
+              itemBuilder: (context, index) {
+                return ItemCard(
+                  name: mockData.MOCK[index]["name"],
+                  description: mockData.MOCK[index]["description"],
+                  size: mockData.MOCK[index]["size"],
+                  state: mockData.MOCK[index]["state"],
+                  distance: mockData.MOCK[index]["distance"],
+                  image: mockData.MOCK[index]["image"],
+                );
+              },
             )
           ],
-        ));
+        )
+
+        // ListView(
+        //   children: [
+        //     FilterBar(categoryValue, sizeValue, colorValue, stateValue,
+        //         distanceValue),
+        //
+        //   ],
+        // )
+        );
   }
 }
