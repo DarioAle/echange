@@ -71,12 +71,21 @@ flutter:
     - assets/images/love.png
     - assets/images/configuration.png
     - assets/images/logout.png
+    - assets/clothes/vestido1.jpg
+    - assets/clothes/vestido2.jpg
+    - assets/clothes/vestido3.jpg
+    - assets/clothes/falda1.jpg
+    - assets/clothes/falda2.jpg
 
 
-  # fonts:
-  #   - family: Titillium_Web
-  #     fonts:
-  #       -asset: assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf
+  fonts:
+    - family: Titillium Web Regular
+      fonts:
+        - asset: assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf
+
+    - family: Titillium Web Semibold
+      fonts:
+        - asset: assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf
 
 
   # To add assets to your application, add an assets section, like this:

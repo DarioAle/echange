@@ -13,9 +13,3 @@ const String PROFILE_NAME = "Pedro Paramo";
 const String PROFILE_EMAIL = "pp@decomala.com";
 const String PROFILE_PICTURE =
     "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-
-// app
-const PRIMARY_COLOR = Colors.indigo;
-const SECONDARY_COLOR = Colors.amber;
-const THIRD_COLOR = Colors.blueGrey;
-const BUTTON_COLOR = Colors.grey;
