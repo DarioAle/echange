@@ -1,4 +1,3 @@
-import 'package:echange/match_notification.dart';
 import 'package:flutter/material.dart';
 import 'Identity/identity.dart';
 import 'utils/constants.dart';
@@ -19,10 +18,19 @@ class MyApp extends StatelessWidget {
         // DEV-only
         // home: Home(),
         home: new SplashScreen(
+          loaderColor: Color.fromRGBO(224, 122, 95, 1),
+          loadingText: Text(
+            "Cargando...",
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(color: Colors.white),
+          ),
           seconds: 5,
           title: Text(
             "E-change!",
-            style: TextStyle(color: Colors.white, fontSize: 50),
+            style: Theme.of(context).textTheme.headline1.copyWith(
+                color: Colors.white, fontSize: 50, fontWeight: FontWeight.w600),
           ),
           image: Image(
             image: AssetImage('assets/images/plant.png'),

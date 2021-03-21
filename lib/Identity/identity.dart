@@ -27,7 +27,10 @@ class _IdentityState extends State<Identity> {
                     height: 200,
                   )),
               Text("E-change!",
-                  style: TextStyle(color: Colors.white, fontSize: 50)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline1
+                      .copyWith(color: Colors.white, fontSize: 50)),
               Row(children: [
                 Expanded(
                   child: Padding(
@@ -40,7 +43,10 @@ class _IdentityState extends State<Identity> {
                       color: Color.fromRGBO(61, 64, 91, 1),
                       child: Text(
                         "Registrate",
-                        style: TextStyle(color: Colors.white),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: Colors.white, fontSize: 20),
                       ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -61,7 +67,10 @@ class _IdentityState extends State<Identity> {
                       elevation: 2,
                       color: Color.fromRGBO(61, 64, 91, 1),
                       child: Text("Ingresa",
-                          style: TextStyle(color: Colors.white)),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              .copyWith(color: Colors.white, fontSize: 20)),
                       onPressed: () {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => LogIn()));

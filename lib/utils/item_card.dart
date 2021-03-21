@@ -47,27 +47,32 @@ class _ItemCardState extends State<ItemCard> {
               children: [
                 Text(
                   this.widget.name,
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .copyWith(fontSize: 20),
                 ),
-                Text(this.widget.description),
-                Text("Talla: " + this.widget.size),
-                Text("Estado: " + this.widget.state),
-                Text("Distancia: " + this.widget.distance),
+                Text(this.widget.description,
+                    style: Theme.of(context).textTheme.bodyText1),
+                Text("Talla: " + this.widget.size,
+                    style: Theme.of(context).textTheme.bodyText1),
+                Text("Estado: " + this.widget.state,
+                    style: Theme.of(context).textTheme.bodyText1),
+                Text("Distancia: " + this.widget.distance,
+                    style: Theme.of(context).textTheme.bodyText1),
                 InteractiveViewer(
                   boundaryMargin: const EdgeInsets.all(10.0),
                   clipBehavior: Clip.none,
                   maxScale: 2,
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.only(top: 10, bottom: 10),
                     alignment: Alignment.center,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
                         this.widget.image,
                         fit: BoxFit.contain,
-                        cacheHeight: 250,
+                        cacheHeight: 230,
                       ),
                     ),
                   ),

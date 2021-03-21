@@ -30,7 +30,6 @@ class _FilterBarState extends State<FilterBar> {
             items: ["S", "M", "L", "XL"],
             selectedValue: this.widget.sizeValue,
             onChange: (String value) {
-              print("changed to $value");
               setState(() {
                 this.widget.sizeValue = value;
               });
@@ -41,7 +40,6 @@ class _FilterBarState extends State<FilterBar> {
             items: ["Vestidos", "Bottoms", "Zapatos", "Accesorios"],
             selectedValue: this.widget.categoryValue,
             onChange: (String value) {
-              print("changed to $value");
               setState(() {
                 this.widget.categoryValue = value;
               });
@@ -55,7 +53,6 @@ class _FilterBarState extends State<FilterBar> {
             ],
             selectedValue: this.widget.stateValue,
             onChange: (String value) {
-              print("changed to $value");
               setState(() {
                 this.widget.stateValue = value;
               });

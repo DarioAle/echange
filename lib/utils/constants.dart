@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 // home
 const String APP_TITLE = "Snacks shop";
 // profile

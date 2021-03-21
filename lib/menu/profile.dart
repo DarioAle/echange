@@ -1,6 +1,7 @@
 import 'package:echange/favorites/favorites.dart';
 import 'package:echange/matches/matches.dart';
 import 'package:echange/prospects/prospects.dart';
+import 'package:echange/match_notification.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -12,7 +13,13 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 241, 222, 1),
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text(
+          "Perfil",
+          style: Theme.of(context)
+              .textTheme
+              .headline1
+              .copyWith(color: Colors.white, fontSize: 25),
+        ),
         backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
       ),
       body: Padding(
