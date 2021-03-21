@@ -31,14 +31,20 @@ class _RegisterState extends State<Register> {
               ),
               Text(
                 "E-change!",
-                style: TextStyle(color: Colors.white, fontSize: 40),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline1
+                    .copyWith(color: Colors.white, fontSize: 40),
                 textAlign: TextAlign.center,
               ),
               Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Registrate",
-                    style: TextStyle(fontSize: 20),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(fontSize: 20),
                   )),
               Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 5),
@@ -127,7 +133,10 @@ class _RegisterState extends State<Register> {
                   color: Color.fromRGBO(61, 64, 91, 1),
                   child: Text(
                     "Registrate",
-                    style: TextStyle(color: Colors.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () {
                     Navigator.of(context)

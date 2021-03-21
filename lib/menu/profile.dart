@@ -10,7 +10,13 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 241, 222, 1),
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text(
+          "Perfil",
+          style: Theme.of(context)
+              .textTheme
+              .headline1
+              .copyWith(color: Colors.white, fontSize: 25),
+        ),
         backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
       ),
       body: Padding(

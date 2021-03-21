@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
           seconds: 5,
           title: Text(
             "E-change!",
-            style: TextStyle(color: Colors.white, fontSize: 50),
+            style: Theme.of(context).textTheme.headline1.copyWith(
+                color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),
           ),
           image: Image(
             image: AssetImage('assets/images/plant.png'),

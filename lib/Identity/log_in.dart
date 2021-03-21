@@ -1,4 +1,5 @@
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:echange/Identity/register.dart';
 import 'package:echange/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -26,14 +27,20 @@ class _LogInState extends State<LogIn> {
             ),
             Text(
               "E-change!",
-              style: TextStyle(color: Colors.white, fontSize: 40),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline1
+                  .copyWith(color: Colors.white, fontSize: 40),
               textAlign: TextAlign.center,
             ),
             Padding(
                 padding: EdgeInsets.all(10),
                 child: Text(
                   "Inicia sesión",
-                  style: TextStyle(fontSize: 20),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .copyWith(fontSize: 20),
                 )),
             Padding(
               padding: EdgeInsets.all(10),
@@ -77,8 +84,11 @@ class _LogInState extends State<LogIn> {
                 elevation: 2,
                 color: Color.fromRGBO(61, 64, 91, 1),
                 child: Text(
-                  "Ingresa",
-                  style: TextStyle(color: Colors.white),
+                  "Ingresa anonimamente",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .copyWith(color: Colors.white, fontSize: 20),
                 ),
                 onPressed: () {
                   Navigator.of(context)
@@ -105,10 +115,12 @@ class _LogInState extends State<LogIn> {
                   onPressed: () {},
                 )),
             Padding(
-              padding: const EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.only(top: 30),
               child: Text(
                 "¿Olvidaste tu contraseña?",
-                style: TextStyle(color: Colors.white),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      color: Colors.white,
+                    ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -116,18 +128,24 @@ class _LogInState extends State<LogIn> {
               padding: const EdgeInsets.only(top: 40, bottom: 10),
               child: Text(
                 "¿Aún no tienes cuenta?",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
             ),
-            Text(
-              "REGISTRATE",
-              style: TextStyle(
-                color: Colors.white,
+            GestureDetector(
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Register())),
+              child: Text(
+                "REGISTRATE",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: Colors.white),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ]),
         ),
