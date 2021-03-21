@@ -1,4 +1,6 @@
+import 'package:echange/favorites/favorites.dart';
 import 'package:echange/matches/matches.dart';
+import 'package:echange/prospects/prospects.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -61,8 +63,7 @@ class Profile extends StatelessWidget {
                     ),
                     onTap: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Matches())
-                      );
+                          MaterialPageRoute(builder: (context) => Matches()));
                     },
                   ),
                 ),
@@ -75,7 +76,10 @@ class Profile extends StatelessWidget {
                     "assets/images/Prospects.png",
                     height: 50,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Prospects()));
+                  },
                 ),
                 Divider(
                   color: Colors.grey,
@@ -86,7 +90,10 @@ class Profile extends StatelessWidget {
                     "assets/images/love.png",
                     height: 50,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Favorites()));
+                  },
                 ),
                 Divider(
                   color: Colors.grey,

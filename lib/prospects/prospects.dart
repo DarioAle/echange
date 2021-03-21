@@ -1,15 +1,16 @@
 import 'package:echange/matches/matches_item.dart';
 import 'package:echange/menu/profile.dart';
+import 'package:echange/prospects/prospects_item.dart';
 import 'package:flutter/material.dart';
 
-class Matches extends StatefulWidget {
-  Matches({Key key}) : super(key: key);
+class Prospects extends StatefulWidget {
+  Prospects({Key key}) : super(key: key);
 
   @override
-  _MatchesState createState() => _MatchesState();
+  _ProspectsState createState() => _ProspectsState();
 }
 
-class _MatchesState extends State<Matches> {
+class _ProspectsState extends State<Prospects> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -38,14 +39,14 @@ class _MatchesState extends State<Matches> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "Tus Matches",
+                        "Prospectos",
                         style: Theme.of(context)
                             .textTheme
                             .headline1
                             .copyWith(fontSize: 25, color: Colors.black),
                       ),
                       Image.asset(
-                        'assets/images/relationship.png',
+                        'assets/images/Prospects.png',
                         width: 50,
                         height: 50,
                       )
@@ -58,7 +59,7 @@ class _MatchesState extends State<Matches> {
               child: ListView.builder(
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
-                    return MatchesItem();
+                    return ProspectsItem();
                   }))
         ],
       ),

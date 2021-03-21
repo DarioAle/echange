@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 
-class MatchesItem extends StatefulWidget {
-  MatchesItem({Key key}) : super(key: key);
+class FavoritesItem extends StatefulWidget {
+  FavoritesItem({Key key}) : super(key: key);
 
   @override
-  _MatchesItemState createState() => _MatchesItemState();
+  _FavoritesItemState createState() => _FavoritesItemState();
 }
 
-class _MatchesItemState extends State<MatchesItem> {
+class _FavoritesItemState extends State<FavoritesItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(242, 204, 143, 1.0),
-        border: Border.all(
-          color: Color.fromRGBO(61, 64, 91, 1.0),
-          width :  0.5
-        )
-      ),
+          color: Color.fromRGBO(242, 204, 143, 1.0),
+          border:
+              Border.all(color: Color.fromRGBO(61, 64, 91, 1.0), width: 0.5)),
       child: Container(
         height: 95,
         child: Padding(
@@ -30,7 +27,7 @@ class _MatchesItemState extends State<MatchesItem> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Andrea Gomez",
+                      Text("Sofia Lopez",
                           style: Theme.of(context).textTheme.bodyText1.copyWith(
                               fontSize: 20, fontWeight: FontWeight.bold)),
                       SizedBox(

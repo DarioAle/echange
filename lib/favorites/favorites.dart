@@ -1,15 +1,15 @@
-import 'package:echange/matches/matches_item.dart';
-import 'package:echange/menu/profile.dart';
+import 'package:echange/favorites/favorites_item.dart';
 import 'package:flutter/material.dart';
+import 'package:echange/menu/profile.dart';
 
-class Matches extends StatefulWidget {
-  Matches({Key key}) : super(key: key);
+class Favorites extends StatefulWidget {
+  Favorites({Key key}) : super(key: key);
 
   @override
-  _MatchesState createState() => _MatchesState();
+  _FavoritesState createState() => _FavoritesState();
 }
 
-class _MatchesState extends State<Matches> {
+class _FavoritesState extends State<Favorites> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -38,14 +38,14 @@ class _MatchesState extends State<Matches> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "Tus Matches",
+                        "Tus Favoritos",
                         style: Theme.of(context)
                             .textTheme
                             .headline1
                             .copyWith(fontSize: 25, color: Colors.black),
                       ),
                       Image.asset(
-                        'assets/images/relationship.png',
+                        'assets/images/love.png',
                         width: 50,
                         height: 50,
                       )
@@ -58,10 +58,12 @@ class _MatchesState extends State<Matches> {
               child: ListView.builder(
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
-                    return MatchesItem();
+                    return FavoritesItem();
                   }))
         ],
       ),
     );
   }
 }
+
+
