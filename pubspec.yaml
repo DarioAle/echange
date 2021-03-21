@@ -81,10 +81,14 @@ flutter:
     - assets/clothes/falda2.jpg
 
 
-  # fonts:
-  #   - family: Titillium_Web
-  #     fonts:
-  #       -asset: assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf
+  fonts:
+    - family: Titillium Web Regular
+      fonts:
+        - asset: assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf
+
+    - family: Titillium Web Semibold
+      fonts:
+        - asset: assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf
 
 
   # To add assets to your application, add an assets section, like this:
