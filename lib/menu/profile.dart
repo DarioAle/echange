@@ -1,3 +1,4 @@
+import 'package:echange/matches/matches.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -51,13 +52,19 @@ class Profile extends StatelessWidget {
                 Divider(
                   color: Colors.grey,
                 ),
-                ListTile(
-                  title: Text("Matches"),
-                  leading: Image.asset(
-                    "assets/images/relationship.png",
-                    height: 50,
+                GestureDetector(
+                  child: ListTile(
+                    title: Text("Matches"),
+                    leading: Image.asset(
+                      "assets/images/relationship.png",
+                      height: 50,
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Matches())
+                      );
+                    },
                   ),
-                  onTap: () {},
                 ),
                 Divider(
                   color: Colors.grey,
