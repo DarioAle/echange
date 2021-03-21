@@ -1,3 +1,4 @@
+import 'package:echange/match_notification.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -57,7 +58,14 @@ class Profile extends StatelessWidget {
                     "assets/images/relationship.png",
                     height: 50,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    showGeneralDialog(
+                        context: context,
+                        pageBuilder: (BuildContext context, Animation animation,
+                            Animation secondAnimation) {
+                          return MatchNotification();
+                        });
+                  },
                 ),
                 Divider(
                   color: Colors.grey,

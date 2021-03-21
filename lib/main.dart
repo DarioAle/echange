@@ -19,21 +19,19 @@ class MyApp extends StatelessWidget {
                 headline1: TextStyle(fontFamily: "Titillium Web Semibold"))),
         // DEV-only
         // home: Home(),
-        home: MatchNotification()
-        // home: new SplashScreen(
-        //   seconds: 5,
-        //   title: Text(
-        //     "E-change!",
-        //     style: TextStyle(color: Colors.white, fontSize: 50),
-        //   ),
-        //   image: Image(
-        //     image: AssetImage('assets/images/plant.png'),
-        //     height: 200,
-        //   ),
-        //   navigateAfterSeconds: Identity(),
-        //   photoSize: 200,
-        //   backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
-        // )
-        );
+        home: new SplashScreen(
+          seconds: 5,
+          title: Text(
+            "E-change!",
+            style: TextStyle(color: Colors.white, fontSize: 50),
+          ),
+          image: Image(
+            image: AssetImage('assets/images/plant.png'),
+            height: 200,
+          ),
+          navigateAfterSeconds: Identity(),
+          photoSize: 200,
+          backgroundColor: Color.fromRGBO(129, 178, 154, 1.0),
+        ));
   }
 }
