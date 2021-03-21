@@ -12,7 +12,7 @@ class _MatchesItemState extends State<MatchesItem> {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        height: 110,
+        height: 95,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Stack(children: [
@@ -27,6 +27,9 @@ class _MatchesItemState extends State<MatchesItem> {
                         "Andrea Gomez",
                         style: TextStyle(fontSize: 20.0),
                       ),
+                      SizedBox(
+                        height: 7,
+                      ),
                       Text("Blusa Mediana"),
                       Text("Color verde")
                     ]),
@@ -40,8 +43,8 @@ class _MatchesItemState extends State<MatchesItem> {
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Image.asset(
                     "assets/images/plant.png",
-                    height: 100,
-                    width: 100,
+                    height: 85,
+                    width: 85,
                   ),
                 ))
           ]),

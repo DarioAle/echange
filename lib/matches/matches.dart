@@ -51,9 +51,9 @@ class _MatchesState extends State<Matches> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 0.73,
             child : ListView.builder(
-              itemCount: 2,
+              itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
                 // return Card(
                 //   child: ListTile(
