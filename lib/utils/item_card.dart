@@ -22,6 +22,10 @@ class ItemCard extends StatefulWidget {
 }
 
 class _ItemCardState extends State<ItemCard> {
+  bool liked = false;
+  var assetLikedButton = 'assets/images/heart_outlined.png';
+  String likeSnackbarText;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,11 +52,11 @@ class _ItemCardState extends State<ItemCard> {
                   ),
                 ),
                 Text(this.widget.description),
-                Text(this.widget.size),
-                Text(this.widget.state),
-                Text(this.widget.distance),
+                Text("Talla: " + this.widget.size),
+                Text("Estado: " + this.widget.state),
+                Text("Distancia: " + this.widget.distance),
                 InteractiveViewer(
-                  boundaryMargin: const EdgeInsets.all(20.0),
+                  boundaryMargin: const EdgeInsets.all(10.0),
                   clipBehavior: Clip.none,
                   maxScale: 2,
                   child: Container(
@@ -68,6 +72,64 @@ class _ItemCardState extends State<ItemCard> {
                     ),
                   ),
                 ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Ink(
+                      decoration: const ShapeDecoration(
+                          shape: CircleBorder(), color: Colors.grey),
+                      child: IconButton(
+                        icon: Image.asset(
+                          'assets/images/close.png',
+                          height: 20,
+                        ),
+                        onPressed: () {
+                          // TODO: Remove from queuque to show item
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              new SnackBar(
+                                  duration: Duration(seconds: 1),
+                                  content:
+                                      Text("Esta prenda ya no se mostrará")));
+                        },
+                        highlightColor: Color.fromRGBO(224, 122, 95, 1),
+                      ),
+                    ),
+                    Ink(
+                      decoration: const ShapeDecoration(
+                          shape: CircleBorder(), color: Colors.grey),
+                      child: IconButton(
+                        icon: Image.asset(
+                          assetLikedButton,
+                          height: 30,
+                        ),
+                        onPressed: () {
+                          // TODO: Add to favorites
+                          liked = !liked;
+                          if (liked) {
+                            setState(() {
+                              assetLikedButton = 'assets/images/heart.png';
+                              likeSnackbarText =
+                                  "Prenda añadida a tus favoritos!";
+                            });
+                          } else {
+                            setState(() {
+                              assetLikedButton =
+                                  'assets/images/heart_outlined.png';
+                              likeSnackbarText =
+                                  "Prenda removida de tus favoritos!";
+                            });
+                          }
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              new SnackBar(
+                                  duration: Duration(seconds: 1),
+                                  content: Text(likeSnackbarText)));
+                        },
+                        highlightColor: Color.fromRGBO(129, 178, 154, 1),
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
           ),

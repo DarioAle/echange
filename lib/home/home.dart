@@ -52,15 +52,6 @@ class _HomeState extends State<Home> {
               },
             )
           ],
-        )
-
-        // ListView(
-        //   children: [
-        //     FilterBar(categoryValue, sizeValue, colorValue, stateValue,
-        //         distanceValue),
-        //
-        //   ],
-        // )
-        );
+        ));
   }
 }

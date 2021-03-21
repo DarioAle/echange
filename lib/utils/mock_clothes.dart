@@ -13,7 +13,7 @@ const Map<int, Map<String, dynamic>> MOCK = {
     "size": "G",
     "state": "usado",
     "distance": "5 km",
-    "image": "assets/clothes/vestido1.jpg"
+    "image": "assets/clothes/vestido2.jpg"
   },
   2: {
     "name": "Vestido camisa manga larga",
