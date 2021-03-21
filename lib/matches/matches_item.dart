@@ -10,7 +10,13 @@ class MatchesItem extends StatefulWidget {
 class _MatchesItemState extends State<MatchesItem> {
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(242, 204, 143, 1.0),
+        border: Border.all(
+          color: Color.fromRGBO(61, 64, 91, 1.0)
+        )
+      ),
       child: Container(
         height: 95,
         child: Padding(
@@ -19,19 +25,22 @@ class _MatchesItemState extends State<MatchesItem> {
             Align(
               alignment: Alignment(-0.12, -1.0),
               child: Padding(
-                padding: const EdgeInsets.only(top : 5),
+                padding: const EdgeInsets.only(top: 2),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Andrea Gomez",
-                        style: TextStyle(fontSize: 20.0),
-                      ),
+                      Text("Andrea Gomez",
+                          style: Theme.of(context).textTheme.bodyText1.copyWith(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
                       SizedBox(
-                        height: 7,
+                        height: 4,
                       ),
-                      Text("Blusa Mediana"),
-                      Text("Color verde")
+                      Text("Blusa Mediana",
+                          style: Theme.of(context).textTheme.bodyText1),
+                      Text(
+                        "Color verde",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      )
                     ]),
               ),
             ),
@@ -39,7 +48,7 @@ class _MatchesItemState extends State<MatchesItem> {
                 alignment: Alignment(-1.0, 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Image.asset(
                     "assets/images/plant.png",

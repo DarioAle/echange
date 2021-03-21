@@ -39,7 +39,10 @@ class _MatchesState extends State<Matches> {
                     children: [
                       Text(
                         "Tus Matches",
-                        style: TextStyle(fontSize: 25),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline1
+                            .copyWith(fontSize: 25, color: Colors.black),
                       ),
                       Image.asset(
                         'assets/images/relationship.png',
@@ -51,19 +54,17 @@ class _MatchesState extends State<Matches> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.73,
-            child : ListView.builder(
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                // return Card(
-                //   child: ListTile(
-                //     title: Text('Un texto')
-                //   )
-                // );
-                return MatchesItem();
-              }
-            )
-          )
+              height: MediaQuery.of(context).size.height * 0.73,
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    // return Card(
+                    //   child: ListTile(
+                    //     title: Text('Un texto')
+                    //   )
+                    // );
+                    return MatchesItem();
+                  }))
         ],
       ),
     );
