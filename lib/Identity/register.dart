@@ -11,10 +11,9 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   var _nameInputController = TextEditingController();
-  var _lastNameInputController = TextEditingController();
   var _emailInputController = TextEditingController();
   var _pswInputController = TextEditingController();
-  var _verifyPswInputController = TextEditingController();
+  bool isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,23 +56,7 @@ class _RegisterState extends State<Register> {
                       fillColor: Colors.white,
                       filled: true,
                       border: OutlineInputBorder(),
-                      labelText: "Nombre",
-                      labelStyle: TextStyle(color: Colors.black, fontSize: 15),
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    )),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 5, bottom: 5),
-                child: TextField(
-                    controller: _lastNameInputController,
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
-                      hoverColor: Colors.white,
-                      focusColor: Colors.white,
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: OutlineInputBorder(),
-                      labelText: "Apellidos",
+                      labelText: "Nombre completo",
                       labelStyle: TextStyle(color: Colors.black, fontSize: 15),
                       floatingLabelBehavior: FloatingLabelBehavior.auto,
                     )),
@@ -95,33 +78,29 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: EdgeInsets.only(top: 5, bottom: 5),
                 child: TextField(
-                    obscureText: true,
-                    controller: _pswInputController,
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blueGrey)),
-                      labelText: "Contraseña",
-                      labelStyle: TextStyle(color: Colors.black, fontSize: 15),
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    )),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 5, bottom: 5),
-                child: TextField(
-                    obscureText: true,
-                    controller: _verifyPswInputController,
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: OutlineInputBorder(),
-                      labelText: "Verifica contraseña",
-                      labelStyle: TextStyle(color: Colors.black, fontSize: 15),
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    )),
+                  obscureText: !isPasswordVisible ? true : false,
+                  controller: _pswInputController,
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onPressed: () {
+                        setState(() {
+                          isPasswordVisible = !isPasswordVisible;
+                        });
+                      },
+                    ),
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blueGrey)),
+                    labelText: "Contraseña",
+                    labelStyle: TextStyle(color: Colors.black, fontSize: 15),
+                    floatingLabelBehavior: FloatingLabelBehavior.auto,
+                  ),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 15),
