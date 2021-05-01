@@ -3,6 +3,7 @@ import 'package:echange/utils/list_item_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemDetail extends StatefulWidget {
+  final bool isOwn;
   final String name;
   final String description;
   final String size;
@@ -11,6 +12,7 @@ class ItemDetail extends StatefulWidget {
   final String image;
   ItemDetail(
       {Key key,
+      this.isOwn,
       @required this.name,
       @required this.description,
       @required this.size,

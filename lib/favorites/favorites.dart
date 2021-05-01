@@ -30,7 +30,6 @@ class _FavoritesState extends State<Favorites> {
         children: <Widget>[
           Container(
             height: MediaQuery.of(context).size.height * 0.15,
-            // color: Colors.red,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -3,7 +3,8 @@ import 'package:echange/utils/grid_item_card.dart';
 import 'package:flutter/material.dart';
 
 class ProfileGrid extends StatefulWidget {
-  ProfileGrid({Key key}) : super(key: key);
+  final String profileName;
+  ProfileGrid({Key key, @required this.profileName}) : super(key: key);
 
   @override
   _ProfileGridState createState() => _ProfileGridState();
@@ -29,7 +30,6 @@ class _ProfileGridState extends State<ProfileGrid> {
         body: Column(children: <Widget>[
           Container(
               height: MediaQuery.of(context).size.height * 0.20,
-              // color: Colors.red,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -46,7 +46,7 @@ class _ProfileGridState extends State<ProfileGrid> {
                           ),
                         ),
                         Text(
-                          "Margarita Perez",
+                          this.widget.profileName,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),

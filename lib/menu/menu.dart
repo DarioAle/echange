@@ -75,8 +75,10 @@ class Menu extends StatelessWidget {
                   ),
                   minVerticalPadding: 20,
                   onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => ProfileGrid()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProfileGrid(
+                              profileName: "Margarita Perez",
+                            )));
                   },
                 ),
                 Divider(
