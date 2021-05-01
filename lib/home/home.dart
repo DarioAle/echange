@@ -1,4 +1,4 @@
-import 'package:echange/menu/profile.dart';
+import 'package:echange/menu/menu.dart';
 import 'package:echange/utils/custom_app_bar.dart';
 import 'package:echange/utils/item_card.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
         key: _scaffoldKey,
         backgroundColor: Color.fromRGBO(242, 204, 143, 1),
         endDrawer: new Drawer(
-          child: Profile(),
+          child: Menu(),
         ),
         appBar: customAppBar,
         body: ListView(
