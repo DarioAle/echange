@@ -1,7 +1,7 @@
 import 'package:echange/favorites/favorites.dart';
 import 'package:echange/matches/matches.dart';
 import 'package:echange/prospects/prospects.dart';
-import 'package:echange/match_notification.dart';
+import 'package:echange/matches/match_notification.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {

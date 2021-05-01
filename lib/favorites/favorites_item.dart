@@ -16,7 +16,7 @@ class _FavoritesItemState extends State<FavoritesItem> {
           border:
               Border.all(color: Color.fromRGBO(61, 64, 91, 1.0), width: 0.5)),
       child: Container(
-        height: 95,
+        height: 100,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Stack(children: [

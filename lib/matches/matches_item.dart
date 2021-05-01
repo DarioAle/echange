@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../match_notification.dart';
+import 'match_notification.dart';
 
 class MatchesItem extends StatefulWidget {
   MatchesItem({Key key}) : super(key: key);
@@ -19,35 +19,35 @@ class _MatchesItemState extends State<MatchesItem> {
             border:
                 Border.all(color: Color.fromRGBO(61, 64, 91, 1.0), width: 0.5)),
         child: Container(
-          height: 95,
+          height: 100,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Stack(children: [
               Align(
-                alignment: Alignment(-0.12, -1.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 2),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Andrea Gomez",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .copyWith(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Text("Blusa Mediana",
-                            style: Theme.of(context).textTheme.bodyText1),
-                        Text(
-                          "Color verde",
-                          style: Theme.of(context).textTheme.bodyText1,
-                        )
-                      ]),
-                ),
-              ),
+                  alignment: Alignment(-0.12, -1.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 2),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Andrea Gomez",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  .copyWith(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Text("Blusa Mediana",
+                              style: Theme.of(context).textTheme.bodyText1),
+                          Text(
+                            "Color verde",
+                            style: Theme.of(context).textTheme.bodyText1,
+                          )
+                        ]),
+                  )),
               Align(
                   alignment: Alignment(-1.0, 0.0),
                   child: Container(
