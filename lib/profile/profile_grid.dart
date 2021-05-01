@@ -1,8 +1,6 @@
 import 'package:echange/menu/menu.dart';
 import 'package:echange/utils/grid_item_card.dart';
-import 'package:echange/utils/list_item_card.dart';
 import 'package:flutter/material.dart';
-import '../utils/mock_clothes.dart' as mockData;
 
 class ProfileGrid extends StatefulWidget {
   ProfileGrid({Key key}) : super(key: key);

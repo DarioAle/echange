@@ -1,3 +1,4 @@
+import 'package:echange/utils/item_detail.dart';
 import 'package:flutter/material.dart';
 
 class GridItemCard extends StatefulWidget {
@@ -23,8 +24,17 @@ class _GridItemCardState extends State<GridItemCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Container(
-          child: Card(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ItemDetail(
+                name: this.widget.name,
+                description: this.widget.description,
+                size: this.widget.size,
+                state: this.widget.state,
+                distance: "5",
+                image: this.widget.image)));
+      },
+      child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: Colors.white,
         elevation: 2,
@@ -79,8 +89,7 @@ class _GridItemCardState extends State<GridItemCard> {
             ),
           ],
         ),
-      )),
-      onTap: () {},
+      ),
     );
   }
 }
