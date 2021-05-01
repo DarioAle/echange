@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ItemCard extends StatefulWidget {
+class ListItemCard extends StatefulWidget {
   final String name;
   final String description;
   final String size;
   final String state;
   final String distance;
   final String image;
-  ItemCard(
+  ListItemCard(
       {Key key,
       @required this.name,
       @required this.description,
@@ -18,10 +18,10 @@ class ItemCard extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ItemCardState createState() => _ItemCardState();
+  _ListItemCardState createState() => _ListItemCardState();
 }
 
-class _ItemCardState extends State<ItemCard> {
+class _ListItemCardState extends State<ListItemCard> {
   bool liked = false;
   var assetLikedButton = 'assets/images/heart_outlined.png';
   String likeSnackbarText;

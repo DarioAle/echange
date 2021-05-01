@@ -1,6 +1,7 @@
 import 'package:echange/favorites/favorites.dart';
 import 'package:echange/home/home.dart';
 import 'package:echange/matches/matches.dart';
+import 'package:echange/profile/profile_grid.dart';
 import 'package:echange/prospects/prospects.dart';
 import 'package:echange/matches/match_notification.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,10 @@ class Menu extends StatelessWidget {
                     height: 50,
                   ),
                   minVerticalPadding: 20,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => ProfileGrid()));
+                  },
                 ),
                 Divider(
                   color: Colors.grey,

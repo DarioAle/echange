@@ -1,6 +1,6 @@
 import 'package:echange/menu/menu.dart';
 import 'package:echange/utils/custom_app_bar.dart';
-import 'package:echange/utils/item_card.dart';
+import 'package:echange/utils/list_item_card.dart';
 import 'package:flutter/material.dart';
 
 import 'filter_bar.dart';
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
               physics: ScrollPhysics(),
               itemCount: mockData.MOCK.length,
               itemBuilder: (context, index) {
-                return ItemCard(
+                return ListItemCard(
                   name: mockData.MOCK[index]["name"],
                   description: mockData.MOCK[index]["description"],
                   size: mockData.MOCK[index]["size"],
