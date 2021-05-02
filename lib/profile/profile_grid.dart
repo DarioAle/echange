@@ -1,4 +1,5 @@
 import 'package:echange/menu/menu.dart';
+import 'package:echange/newItem/item_form.dart';
 import 'package:echange/utils/grid_item_card.dart';
 import 'package:flutter/material.dart';
 
@@ -67,6 +68,8 @@ class _ProfileGridState extends State<ProfileGrid> {
                     ),
                     onPressed: () {
                       //TO-DO: Add new item
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => ItemForm()));
                     },
                   ),
                 ),
