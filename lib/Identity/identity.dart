@@ -1,4 +1,4 @@
-import 'package:echange/Identity/log_in.dart';
+import 'package:echange/Identity/log_in_page.dart';
 import 'package:echange/Identity/register.dart';
 import 'package:flutter/material.dart';
 
@@ -72,8 +72,8 @@ class _IdentityState extends State<Identity> {
                               .bodyText1
                               .copyWith(color: Colors.white, fontSize: 20)),
                       onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => LogIn()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => LogInPage()));
                       },
                     ),
                   ),
