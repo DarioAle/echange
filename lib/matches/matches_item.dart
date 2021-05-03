@@ -30,7 +30,7 @@ class _MatchesItemState extends State<MatchesItem> {
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Andrea Gomez",
+                          Text("Andrea Salazar",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText1
