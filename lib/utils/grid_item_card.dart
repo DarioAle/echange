@@ -31,7 +31,6 @@ class _GridItemCardState extends State<GridItemCard> {
                 description: this.widget.description,
                 size: this.widget.size,
                 state: this.widget.state,
-                distance: "5",
                 image: this.widget.image)));
       },
       child: Card(

@@ -4,20 +4,22 @@ import 'package:flutter/material.dart';
 
 class ItemDetail extends StatefulWidget {
   final bool isOwn;
+  final String ownerName;
+  final String ownerPicture;
   final String name;
   final String description;
   final String size;
   final String state;
-  final String distance;
   final String image;
   ItemDetail(
       {Key key,
       this.isOwn,
+      this.ownerName,
+      this.ownerPicture,
       @required this.name,
       @required this.description,
       @required this.size,
       @required this.state,
-      @required this.distance,
       @required this.image})
       : super(key: key);
 
@@ -55,13 +57,13 @@ class _ItemDetailState extends State<ItemDetail> {
                         height: 100,
                         child: CircleAvatar(
                           backgroundColor: Color.fromRGBO(181, 72, 219, .6),
-                          child: Image.asset("assets/images/woman.png"),
+                          child: Image.asset(this.widget.ownerPicture),
                           minRadius: 50,
                           maxRadius: 80,
                         ),
                       ),
                       Text(
-                        "Margarita Perez",
+                        this.widget.ownerName,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -73,11 +75,11 @@ class _ItemDetailState extends State<ItemDetail> {
             padding: EdgeInsets.only(top: 10),
             width: MediaQuery.of(context).size.width,
             child: ListItemCard(
+                isOwn: false,
                 name: this.widget.name,
                 description: this.widget.description,
                 size: this.widget.size,
                 state: this.widget.state,
-                distance: "5",
                 image: this.widget.image),
           )
         ]));

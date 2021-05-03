@@ -55,7 +55,7 @@ class _MatchesItemState extends State<MatchesItem> {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Image.asset(
-                      "assets/images/plant.png",
+                      "assets/clothes/vestido1.jpg",
                       height: 85,
                       width: 85,
                     ),

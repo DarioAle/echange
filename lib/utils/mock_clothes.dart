@@ -4,7 +4,6 @@ const Map<int, Map<String, dynamic>> MOCK = {
     "description": "Vestido floral con tela fresca",
     "size": "M",
     "state": "usado",
-    "distance": "5 km",
     "image": "assets/clothes/vestido1.jpg"
   },
   1: {
@@ -12,7 +11,6 @@ const Map<int, Map<String, dynamic>> MOCK = {
     "description": "Vestido negro de lino",
     "size": "G",
     "state": "usado",
-    "distance": "5 km",
     "image": "assets/clothes/vestido2.jpg"
   },
   2: {
@@ -20,7 +18,6 @@ const Map<int, Map<String, dynamic>> MOCK = {
     "description": "Vestido de manga larga con botones",
     "size": "S",
     "state": "nuevo",
-    "distance": "5 km",
     "image": "assets/clothes/vestido3.jpg"
   },
   3: {
@@ -28,7 +25,6 @@ const Map<int, Map<String, dynamic>> MOCK = {
     "description": "Falda corta formal con botones al costado",
     "size": "M",
     "state": "usado",
-    "distance": "5 km",
     "image": "assets/clothes/falda1.jpg"
   },
   4: {
@@ -36,7 +32,6 @@ const Map<int, Map<String, dynamic>> MOCK = {
     "description": "Falda corte midi con abertura y botones en medio",
     "size": "M",
     "state": "nuevo",
-    "distance": "5 km",
     "image": "assets/clothes/falda2.jpg"
   }
 };

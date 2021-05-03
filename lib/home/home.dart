@@ -20,7 +20,6 @@ class _HomeState extends State<Home> {
   var sizeValue;
   var colorValue;
   var stateValue;
-  var distanceValue;
 
   @override
   Widget build(BuildContext context) {
@@ -34,19 +33,18 @@ class _HomeState extends State<Home> {
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            FilterBar(categoryValue, sizeValue, colorValue, stateValue,
-                distanceValue),
+            FilterBar(categoryValue, sizeValue, colorValue, stateValue),
             ListView.builder(
               shrinkWrap: true,
               physics: ScrollPhysics(),
               itemCount: mockData.MOCK.length,
               itemBuilder: (context, index) {
                 return ListItemCard(
+                  isOwn: true,
                   name: mockData.MOCK[index]["name"],
                   description: mockData.MOCK[index]["description"],
                   size: mockData.MOCK[index]["size"],
                   state: mockData.MOCK[index]["state"],
-                  distance: mockData.MOCK[index]["distance"],
                   image: mockData.MOCK[index]["image"],
                 );
               },

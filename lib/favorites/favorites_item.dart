@@ -15,12 +15,13 @@ class _FavoritesItemState extends State<FavoritesItem> {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ItemDetail(
-                name: "Blusa Mediana",
+                ownerName: "Sofia Lopez",
+                ownerPicture: "assets/images/woman2.png",
+                name: "Vestido oversized",
                 description: "Color Verde",
-                size: "M",
+                size: "G",
                 state: "Nueva",
-                distance: "5",
-                image: "assets/images/plant.png")));
+                image: "assets/clothes/vestido3.jpg")));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -64,7 +65,7 @@ class _FavoritesItemState extends State<FavoritesItem> {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Image.asset(
-                      "assets/images/plant.png",
+                      "assets/clothes/vestido3.jpg",
                       height: 85,
                       width: 85,
                     ),
