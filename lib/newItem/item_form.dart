@@ -12,6 +12,7 @@ class _ItemFormState extends State<ItemForm> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   var nombre = TextEditingController();
+  var categoria = TextEditingController();
   var descripcion = TextEditingController();
   var talla = TextEditingController();
   var estado = TextEditingController();
@@ -33,7 +34,7 @@ class _ItemFormState extends State<ItemForm> {
       ),
       body: ListView(children: [
         Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(15),
           child: Column(
             children: [
               Text("Agregar nueva prenda",
@@ -48,7 +49,8 @@ class _ItemFormState extends State<ItemForm> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    hintText: "Nombre"),
+                    hintText: "Nombre",
+                    hintStyle: TextStyle(fontSize: 12)),
               ),
               SizedBox(height: 10),
               TextField(
@@ -58,7 +60,19 @@ class _ItemFormState extends State<ItemForm> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    hintText: "Descripción"),
+                    hintText: "Descripción",
+                    hintStyle: TextStyle(fontSize: 12)),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: descripcion,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    hintText:
+                        "Categoría (Vestido, Bottom, Zapatos, Accesorios)",
+                    hintStyle: TextStyle(fontSize: 12)),
               ),
               SizedBox(height: 10),
               TextField(
@@ -67,7 +81,8 @@ class _ItemFormState extends State<ItemForm> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    hintText: "Talla (XCH, CH, M, G, XG)"),
+                    hintText: "Talla (XCH, CH, M, G, XG)",
+                    hintStyle: TextStyle(fontSize: 12)),
               ),
               SizedBox(height: 10),
               TextField(
@@ -76,7 +91,8 @@ class _ItemFormState extends State<ItemForm> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    hintText: "Estado (Nuevo, seminuevo, usado)"),
+                    hintText: "Estado (Nuevo, seminuevo, usado)",
+                    hintStyle: TextStyle(fontSize: 12)),
               ),
               SizedBox(height: 10),
               MaterialButton(
