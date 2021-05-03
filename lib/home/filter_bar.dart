@@ -8,9 +8,7 @@ class FilterBar extends StatefulWidget {
   String sizeValue;
   String colorValue;
   String stateValue;
-  String distanceValue;
-  FilterBar(categoryValue, sizeValue, colorValue, stateValue, distanceValue,
-      {Key key})
+  FilterBar(categoryValue, sizeValue, colorValue, stateValue, {Key key})
       : super(key: key);
 
   @override
@@ -49,23 +47,13 @@ class _FilterBarState extends State<FilterBar> {
             categoryName: "Estado",
             items: [
               "Nuevo",
+              "Seminuevo",
               "Usado",
             ],
             selectedValue: this.widget.stateValue,
             onChange: (String value) {
               setState(() {
                 this.widget.stateValue = value;
-              });
-            },
-          ),
-          FilterButtons(
-            categoryName: "Distancia",
-            items: ["3km", "5km", "10km", "13km"],
-            selectedValue: this.widget.distanceValue,
-            onChange: (String value) {
-              print("changed to $value");
-              setState(() {
-                this.widget.distanceValue = value;
               });
             },
           ),

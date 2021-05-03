@@ -1,6 +1,6 @@
 import 'package:echange/favorites/favorites_item.dart';
 import 'package:flutter/material.dart';
-import 'package:echange/menu/profile.dart';
+import 'package:echange/menu/menu.dart';
 
 class Favorites extends StatefulWidget {
   Favorites({Key key}) : super(key: key);
@@ -18,7 +18,7 @@ class _FavoritesState extends State<Favorites> {
       key: _scaffoldKey,
       backgroundColor: Color.fromRGBO(242, 204, 143, 1),
       endDrawer: new Drawer(
-        child: Profile(),
+        child: Menu(),
       ),
       appBar: AppBar(
         leading: Padding(
@@ -30,7 +30,6 @@ class _FavoritesState extends State<Favorites> {
         children: <Widget>[
           Container(
             height: MediaQuery.of(context).size.height * 0.15,
-            // color: Colors.red,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -65,5 +64,3 @@ class _FavoritesState extends State<Favorites> {
     );
   }
 }
-
-

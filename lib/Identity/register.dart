@@ -125,15 +125,6 @@ class _RegisterState extends State<Register> {
               ),
               Padding(
                   padding: EdgeInsets.only(top: 15),
-                  child: FacebookAuthButton(
-                    borderRadius: 10.0,
-                    text: "Registrate con Facebook",
-                    darkMode: true,
-                    buttonColor: Color.fromRGBO(61, 64, 91, 1),
-                    onPressed: () {},
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 15),
                   child: GoogleAuthButton(
                     borderRadius: 10.0,
                     text: "Registrate con Google",

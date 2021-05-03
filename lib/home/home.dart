@@ -1,6 +1,6 @@
-import 'package:echange/menu/profile.dart';
+import 'package:echange/menu/menu.dart';
 import 'package:echange/utils/custom_app_bar.dart';
-import 'package:echange/utils/item_card.dart';
+import 'package:echange/utils/list_item_card.dart';
 import 'package:flutter/material.dart';
 
 import 'filter_bar.dart';
@@ -20,7 +20,6 @@ class _HomeState extends State<Home> {
   var sizeValue;
   var colorValue;
   var stateValue;
-  var distanceValue;
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +27,24 @@ class _HomeState extends State<Home> {
         key: _scaffoldKey,
         backgroundColor: Color.fromRGBO(242, 204, 143, 1),
         endDrawer: new Drawer(
-          child: Profile(),
+          child: Menu(),
         ),
         appBar: customAppBar,
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            FilterBar(categoryValue, sizeValue, colorValue, stateValue,
-                distanceValue),
+            FilterBar(categoryValue, sizeValue, colorValue, stateValue),
             ListView.builder(
               shrinkWrap: true,
               physics: ScrollPhysics(),
               itemCount: mockData.MOCK.length,
               itemBuilder: (context, index) {
-                return ItemCard(
+                return ListItemCard(
+                  isOwn: true,
                   name: mockData.MOCK[index]["name"],
                   description: mockData.MOCK[index]["description"],
                   size: mockData.MOCK[index]["size"],
                   state: mockData.MOCK[index]["state"],
-                  distance: mockData.MOCK[index]["distance"],
                   image: mockData.MOCK[index]["image"],
                 );
               },

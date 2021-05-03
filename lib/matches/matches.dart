@@ -1,5 +1,5 @@
 import 'package:echange/matches/matches_item.dart';
-import 'package:echange/menu/profile.dart';
+import 'package:echange/menu/menu.dart';
 import 'package:flutter/material.dart';
 
 class Matches extends StatefulWidget {
@@ -18,7 +18,7 @@ class _MatchesState extends State<Matches> {
       key: _scaffoldKey,
       backgroundColor: Color.fromRGBO(242, 204, 143, 1),
       endDrawer: new Drawer(
-        child: Profile(),
+        child: Menu(),
       ),
       appBar: AppBar(
         leading: Padding(
