@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ListItemCard extends StatefulWidget {
+  final bool isOwn;
   final String name;
   final String description;
   final String size;
   final String state;
-  final String distance;
   final String image;
   ListItemCard(
       {Key key,
+      this.isOwn,
       @required this.name,
       @required this.description,
       @required this.size,
       @required this.state,
-      @required this.distance,
       @required this.image})
       : super(key: key);
 
@@ -28,6 +28,58 @@ class _ListItemCardState extends State<ListItemCard> {
 
   @override
   Widget build(BuildContext context) {
+    var row = Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Ink(
+          decoration:
+              const ShapeDecoration(shape: CircleBorder(), color: Colors.grey),
+          child: IconButton(
+            icon: Image.asset(
+              'assets/images/close.png',
+              height: 20,
+            ),
+            onPressed: () {
+              // TODO: Remove from queuque to show item
+              ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
+                  duration: Duration(seconds: 1),
+                  content: Text("Esta prenda ya no se mostrará")));
+            },
+            highlightColor: Color.fromRGBO(224, 122, 95, 1),
+          ),
+        ),
+        Ink(
+          decoration:
+              const ShapeDecoration(shape: CircleBorder(), color: Colors.grey),
+          child: IconButton(
+            icon: Image.asset(
+              assetLikedButton,
+              height: 30,
+            ),
+            onPressed: () {
+              // TODO: Add to favorites
+              liked = !liked;
+              if (liked) {
+                setState(() {
+                  assetLikedButton = 'assets/images/heart.png';
+                  likeSnackbarText = "Prenda añadida a tus favoritos!";
+                });
+              } else {
+                setState(() {
+                  assetLikedButton = 'assets/images/heart_outlined.png';
+                  likeSnackbarText = "Prenda removida de tus favoritos!";
+                });
+              }
+              ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
+                  duration: Duration(seconds: 1),
+                  content: Text(likeSnackbarText)));
+            },
+            highlightColor: Color.fromRGBO(129, 178, 154, 1),
+          ),
+        )
+      ],
+    );
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
@@ -58,8 +110,6 @@ class _ListItemCardState extends State<ListItemCard> {
                     style: Theme.of(context).textTheme.bodyText1),
                 Text("Estado: " + this.widget.state,
                     style: Theme.of(context).textTheme.bodyText1),
-                Text("Distancia: " + this.widget.distance,
-                    style: Theme.of(context).textTheme.bodyText1),
                 InteractiveViewer(
                   boundaryMargin: const EdgeInsets.all(10.0),
                   clipBehavior: Clip.none,
@@ -77,64 +127,48 @@ class _ListItemCardState extends State<ListItemCard> {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Ink(
-                      decoration: const ShapeDecoration(
-                          shape: CircleBorder(), color: Colors.grey),
-                      child: IconButton(
-                        icon: Image.asset(
-                          'assets/images/close.png',
-                          height: 20,
-                        ),
-                        onPressed: () {
-                          // TODO: Remove from queuque to show item
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              new SnackBar(
-                                  duration: Duration(seconds: 1),
-                                  content:
-                                      Text("Esta prenda ya no se mostrará")));
-                        },
-                        highlightColor: Color.fromRGBO(224, 122, 95, 1),
-                      ),
-                    ),
-                    Ink(
-                      decoration: const ShapeDecoration(
-                          shape: CircleBorder(), color: Colors.grey),
-                      child: IconButton(
-                        icon: Image.asset(
-                          assetLikedButton,
-                          height: 30,
-                        ),
-                        onPressed: () {
-                          // TODO: Add to favorites
-                          liked = !liked;
-                          if (liked) {
-                            setState(() {
-                              assetLikedButton = 'assets/images/heart.png';
-                              likeSnackbarText =
-                                  "Prenda añadida a tus favoritos!";
-                            });
-                          } else {
-                            setState(() {
-                              assetLikedButton =
-                                  'assets/images/heart_outlined.png';
-                              likeSnackbarText =
-                                  "Prenda removida de tus favoritos!";
-                            });
-                          }
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              new SnackBar(
-                                  duration: Duration(seconds: 1),
-                                  content: Text(likeSnackbarText)));
-                        },
-                        highlightColor: Color.fromRGBO(129, 178, 154, 1),
-                      ),
-                    )
-                  ],
-                )
+                this.widget.isOwn
+                    ? row
+                    : Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                            Ink(
+                              decoration: const ShapeDecoration(
+                                  shape: CircleBorder(), color: Colors.grey),
+                              child: IconButton(
+                                icon: Image.asset(
+                                  assetLikedButton,
+                                  height: 30,
+                                ),
+                                onPressed: () {
+                                  // TODO: Add to favorites on firebase
+                                  liked = !liked;
+                                  if (liked) {
+                                    setState(() {
+                                      assetLikedButton =
+                                          'assets/images/heart.png';
+                                      likeSnackbarText =
+                                          "Prenda añadida a tus favoritos!";
+                                    });
+                                  } else {
+                                    setState(() {
+                                      assetLikedButton =
+                                          'assets/images/heart_outlined.png';
+                                      likeSnackbarText =
+                                          "Prenda removida de tus favoritos!";
+                                    });
+                                  }
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      new SnackBar(
+                                          duration: Duration(seconds: 1),
+                                          content: Text(likeSnackbarText)));
+                                },
+                                highlightColor:
+                                    Color.fromRGBO(129, 178, 154, 1),
+                              ),
+                            )
+                          ])
               ],
             ),
           ),
