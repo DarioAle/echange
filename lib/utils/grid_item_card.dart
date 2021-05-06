@@ -2,6 +2,8 @@ import 'package:echange/utils/item_detail.dart';
 import 'package:flutter/material.dart';
 
 class GridItemCard extends StatefulWidget {
+  final String ownerName;
+  final String ownerPicture;
   final String name;
   final String description;
   final String size;
@@ -9,6 +11,8 @@ class GridItemCard extends StatefulWidget {
   final String image;
   GridItemCard(
       {Key key,
+      this.ownerName,
+      this.ownerPicture,
       @required this.name,
       @required this.description,
       @required this.size,
@@ -27,6 +31,9 @@ class _GridItemCardState extends State<GridItemCard> {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ItemDetail(
+                isOwn: true,
+                ownerName: this.widget.ownerName,
+                ownerPicture: this.widget.ownerPicture,
                 name: this.widget.name,
                 description: this.widget.description,
                 size: this.widget.size,

@@ -54,8 +54,8 @@ class _MatchesItemState extends State<MatchesItem> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Image.asset(
-                      "assets/clothes/vestido1.jpg",
+                    child: Image.network(
+                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
                       height: 85,
                       width: 85,
                     ),
