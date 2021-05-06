@@ -34,20 +34,23 @@ class _HomeState extends State<Home> {
           scrollDirection: Axis.vertical,
           children: [
             FilterBar(categoryValue, sizeValue, colorValue, stateValue),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: ScrollPhysics(),
-              itemCount: mockData.MOCK.length,
-              itemBuilder: (context, index) {
-                return ListItemCard(
-                  isOwn: true,
-                  name: mockData.MOCK[index]["name"],
-                  description: mockData.MOCK[index]["description"],
-                  size: mockData.MOCK[index]["size"],
-                  state: mockData.MOCK[index]["state"],
-                  image: mockData.MOCK[index]["image"],
-                );
-              },
+            RefreshIndicator(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: ScrollPhysics(),
+                itemCount: mockData.MOCK.length,
+                itemBuilder: (context, index) {
+                  return ListItemCard(
+                    isOwn: true,
+                    name: mockData.MOCK[index]["name"],
+                    description: mockData.MOCK[index]["description"],
+                    size: mockData.MOCK[index]["size"],
+                    state: mockData.MOCK[index]["state"],
+                    image: mockData.MOCK[index]["image"],
+                  );
+                },
+              ),
+              onRefresh: () {},
             )
           ],
         ));
