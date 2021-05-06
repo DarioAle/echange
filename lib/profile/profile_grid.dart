@@ -91,6 +91,8 @@ class _ProfileGridState extends State<ProfileGrid> {
                   itemCount: 12,
                   itemBuilder: (BuildContext context, int index) {
                     return GridItemCard(
+                        ownerName: this.widget.profileName,
+                        ownerPicture: "assets/images/woman.png",
                         name: "Falda animal print",
                         description: "Falda midi asimetrica",
                         size: "CH",

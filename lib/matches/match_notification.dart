@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MatchNotification extends StatefulWidget {
   MatchNotification({Key key}) : super(key: key);
@@ -81,7 +82,7 @@ class _MatchNotificationState extends State<MatchNotification> {
             minWidth: 200,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            onPressed: () {},
+            onPressed: _launchURL,
             child: Text(
               "Hablar con Andrea",
               style: Theme.of(context)
@@ -90,22 +91,18 @@ class _MatchNotificationState extends State<MatchNotification> {
                   .copyWith(fontSize: 20, color: Colors.white),
             ),
           ),
-          MaterialButton(
-            color: Color.fromRGBO(61, 64, 91, 1),
-            minWidth: 200,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            onPressed: () {},
-            child: Text(
-              "Ver match",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(fontSize: 20, color: Colors.white),
-            ),
-          )
         ],
       ),
     );
+  }
+
+  _launchURL() async {
+    // TODO: add correct number from user
+    final String url = "https://wa.me/523335704546";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
