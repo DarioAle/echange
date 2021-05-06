@@ -56,11 +56,14 @@ class _ProspectsState extends State<Prospects> {
           ),
           Container(
               height: MediaQuery.of(context).size.height * 0.73,
-              child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ProspectsItem();
-                  }))
+              child: RefreshIndicator(
+                child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ProspectsItem();
+                    }),
+                onRefresh: () {},
+              ))
         ],
       ),
     );
