@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MatchNotification extends StatefulWidget {
-  MatchNotification({Key key}) : super(key: key);
+  final String name;
+  final String number;
+  MatchNotification({Key key, this.name, this.number}) : super(key: key);
 
   @override
   _MatchNotificationState createState() => _MatchNotificationState();
@@ -31,7 +33,7 @@ class _MatchNotificationState extends State<MatchNotification> {
             height: 20,
           ),
           Text(
-            "¡Andrea y tu podrán intercambiar artículos pronto!",
+            "¡${this.widget.name} y tu podrán intercambiar artículos pronto!",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
                   color: Colors.white,
@@ -84,7 +86,7 @@ class _MatchNotificationState extends State<MatchNotification> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             onPressed: _launchURL,
             child: Text(
-              "Hablar con Andrea",
+              "Hablar con ella",
               style: Theme.of(context)
                   .textTheme
                   .bodyText1
@@ -98,7 +100,7 @@ class _MatchNotificationState extends State<MatchNotification> {
 
   _launchURL() async {
     // TODO: add correct number from user
-    final String url = "https://wa.me/523335704546";
+    final String url = "https://wa.me/52${this.widget.number}";
     if (await canLaunch(url)) {
       await launch(url);
     } else {

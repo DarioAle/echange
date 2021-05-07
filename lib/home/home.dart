@@ -47,8 +47,6 @@ class _HomeState extends State<Home> {
           }
         }, builder: (context, state) {
           if (state is LoadedItemsState) {
-            print("-----------------si los pude cargar--------");
-            print(state.itemList);
             return Scaffold(
                 key: _scaffoldKey,
                 backgroundColor: Color.fromRGBO(242, 204, 143, 1),
