@@ -160,7 +160,8 @@ class _LogInFormState extends State<LogInForm> {
                           darkMode: true,
                           // buttonColor: Color.fromRGBO(61, 64, 91, 1),
                           onPressed: () {
-                            _loginBloc.add(LoginWithGoogleEvent());
+                            Future.delayed(Duration(milliseconds: 10),
+                                () => _loginBloc.add(LoginWithGoogleEvent()));
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => Home()));
                           },

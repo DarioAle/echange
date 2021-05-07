@@ -127,7 +127,7 @@ class _ItemFormState extends State<ItemForm> {
               ),
               SizedBox(height: 10),
               TextField(
-                controller: descripcionTc,
+                controller: categoriaTc,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
