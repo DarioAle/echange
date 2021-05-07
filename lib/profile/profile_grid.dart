@@ -97,7 +97,6 @@ class _ProfileGridState extends State<ProfileGrid> {
                               color: Color.fromRGBO(61, 64, 91, 1),
                             ),
                             onPressed: () {
-                              //TO-DO: Add new item
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => ItemForm()));
                             },
@@ -129,13 +128,12 @@ class _ProfileGridState extends State<ProfileGrid> {
                                 description: state.itemList[index].description,
                                 size: state.itemList[index].size,
                                 state: state.itemList[index].state,
-                                image: state.itemList[index].urlPicture
-                            );
+                                image: state.itemList[index].urlPicture);
                           },
                         ),
                         onRefresh: () async {
                           BlocProvider.of<ProfileBloc>(context)
-                            .add(RequestAllItems());
+                              .add(RequestAllItems());
                         },
                       ),
                     ),
