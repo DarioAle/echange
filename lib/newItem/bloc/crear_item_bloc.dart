@@ -15,7 +15,7 @@ part 'crear_item_state.dart';
 class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
   final _cFirestore = FirebaseFirestore.instance;
   File _selectedPicture;
-  
+
   CrearItemBloc() : super(CrearItemInitial());
 
   @override
@@ -23,33 +23,33 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
     CrearItemEvent event,
   ) async* {
     // pick an image
-    if(event is PickImageEvent) {
+    if (event is PickImageEvent) {
       try {
         yield LoadingState();
         _selectedPicture = await _getImage();
         yield PickedImageState(image: _selectedPicture);
-      } catch(e) {
+      } catch (e) {
         yield ErrorMessageState(errorMsg: "Error cargando la imagen.");
       }
-    } 
-    // 
-    else if(event is SaveNewItemEvent) {
-      if(_selectedPicture == null)
+    }
+    //
+    else if (event is SaveNewItemEvent) {
+      if (_selectedPicture == null)
         yield ErrorMessageState(errorMsg: "Imagen no seleccionada");
 
-       String imageUrl = await _uploadFile(); 
-       try {
-         if(imageUrl != null) {
-           yield LoadingState();
-           await _saveItems(event.it.copyWith(urlPicture: imageUrl));
-           yield SavedNewState();
-           _selectedPicture = null;
-         } else {
-           yield ErrorMessageState(errorMsg: "Error al cargar la imagen");
-         }
-       } catch (e) {
-         yield ErrorMessageState(errorMsg: "Error guardando la noticia");
-       }
+      String imageUrl = await _uploadFile();
+      try {
+        if (imageUrl != null) {
+          yield LoadingState();
+          await _saveItems(event.it.copyWith(urlPicture: imageUrl));
+          yield SavedNewState();
+          _selectedPicture = null;
+        } else {
+          yield ErrorMessageState(errorMsg: "Error al cargar la imagen");
+        }
+      } catch (e) {
+        yield ErrorMessageState(errorMsg: "Error guardando la noticia");
+      }
     }
   }
 
@@ -68,11 +68,11 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
   Future<String> _uploadFile() async {
     try {
       var stamp = DateTime.now();
-      if (_selectedPicture == null) 
-        return null;
+      if (_selectedPicture == null) return null;
       // define upload task
       UploadTask task = FirebaseStorage.instance
-          .ref("noticias/imagen_$stamp.png") // revisa que esta linea funcione despues
+          .ref(
+              "noticias/imagen_$stamp.png") // revisa que esta linea funcione despues
           .putFile(_selectedPicture);
       // execute task
       await task;
@@ -107,6 +107,4 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
       return null;
     }
   }
-
 }
-

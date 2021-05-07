@@ -98,6 +98,7 @@ class _MatchesState extends State<Matches> {
               ),
             );
           }
+          return Center(child: CircularProgressIndicator());
         }));
   }
 }

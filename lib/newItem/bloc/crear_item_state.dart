@@ -2,7 +2,7 @@ part of 'crear_item_bloc.dart';
 
 abstract class CrearItemState extends Equatable {
   const CrearItemState();
-  
+
   @override
   List<Object> get props => [];
 }
@@ -16,22 +16,19 @@ class PickedImageState extends CrearItemInitial {
 
   PickedImageState({@required this.image});
 
-  @override 
+  @override
   List<Object> get props => [image];
-
 }
 
 class SavedNewState extends CrearItemInitial {
   List<Object> get props => [];
-} 
+}
 
-class ErrorMessageState extends  CrearItemInitial {
+class ErrorMessageState extends CrearItemInitial {
   final String errorMsg;
 
   ErrorMessageState({@required this.errorMsg});
-  
-  @override 
+
+  @override
   List<Object> get props => [errorMsg];
 }
-
-

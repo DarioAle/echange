@@ -57,7 +57,9 @@ class _ItemDetailState extends State<ItemDetail> {
                         height: 100,
                         child: CircleAvatar(
                           backgroundColor: Color.fromRGBO(181, 72, 219, .6),
-                          child: Image.asset(this.widget.ownerPicture),
+                          child: this.widget.isOwn
+                              ? Image.asset(this.widget.ownerPicture)
+                              : Image.network(this.widget.ownerPicture),
                           minRadius: 50,
                           maxRadius: 80,
                         ),
@@ -75,7 +77,7 @@ class _ItemDetailState extends State<ItemDetail> {
             padding: EdgeInsets.only(top: 10),
             width: MediaQuery.of(context).size.width,
             child: ListItemCard(
-                isOwn: false,
+                isOwn: this.widget.isOwn,
                 name: this.widget.name,
                 description: this.widget.description,
                 size: this.widget.size,

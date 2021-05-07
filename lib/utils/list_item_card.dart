@@ -24,6 +24,7 @@ class ListItemCard extends StatefulWidget {
 class _ListItemCardState extends State<ListItemCard> {
   bool liked = false;
   var assetLikedButton = 'assets/images/heart_outlined.png';
+  var assetLikedFilledButton = 'assets/images/heart.png';
   String likeSnackbarText;
 
   @override
@@ -127,7 +128,7 @@ class _ListItemCardState extends State<ListItemCard> {
                     ),
                   ),
                 ),
-                this.widget.isOwn
+                (this.widget.isOwn)
                     ? row
                     : Row(
                         mainAxisSize: MainAxisSize.max,
@@ -138,7 +139,7 @@ class _ListItemCardState extends State<ListItemCard> {
                                   shape: CircleBorder(), color: Colors.grey),
                               child: IconButton(
                                 icon: Image.asset(
-                                  assetLikedButton,
+                                  assetLikedFilledButton,
                                   height: 30,
                                 ),
                                 onPressed: () {

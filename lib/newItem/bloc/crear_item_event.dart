@@ -14,10 +14,9 @@ class SaveNewItemEvent extends CrearItemEvent {
 
   @override
   List<Object> get props => [it];
-
 }
 
 class PickImageEvent extends CrearItemEvent {
-  @override 
+  @override
   List<Object> get props => [];
 }
