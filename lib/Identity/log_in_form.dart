@@ -3,7 +3,6 @@ import 'package:echange/Identity/register.dart';
 import 'package:echange/home/home.dart';
 import 'package:flutter/material.dart';
 
-
 import 'bloc/login_bloc.dart';
 
 class LogInForm extends StatefulWidget {
