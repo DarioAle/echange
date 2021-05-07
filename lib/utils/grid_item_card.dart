@@ -29,7 +29,8 @@ class _GridItemCardState extends State<GridItemCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).push(
+          MaterialPageRoute(
             builder: (context) => ItemDetail(
                 isOwn: true,
                 ownerName: this.widget.ownerName,
@@ -38,7 +39,9 @@ class _GridItemCardState extends State<GridItemCard> {
                 description: this.widget.description,
                 size: this.widget.size,
                 state: this.widget.state,
-                image: this.widget.image)));
+                image: this.widget.image),
+          ),
+        );
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

@@ -17,14 +17,13 @@ class _ItemFormState extends State<ItemForm> {
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   CrearItemBloc _crearItemBloc;
-  File selectedImage;
+  File imagen;
 
   var nombreTc = TextEditingController();
   var categoriaTc = TextEditingController();
   var descripcionTc = TextEditingController();
   var tallaTc = TextEditingController();
   var estadoTc = TextEditingController();
-  File imagen;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class _ItemFormState extends State<ItemForm> {
       child: BlocConsumer<CrearItemBloc, CrearItemState>(
         listener: (context, state) {
           if (state is PickedImageState) {
-            selectedImage = state.image;
+            imagen = state.image;
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(
@@ -51,6 +50,14 @@ class _ItemFormState extends State<ItemForm> {
             descripcionTc.clear();
             tallaTc.clear();
             estadoTc.clear();
+            imagen = null;
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  content: Text("Item guardado.."),
+                ),
+              );
           } else if (state is ErrorMessageState) {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
@@ -183,14 +190,11 @@ class _ItemFormState extends State<ItemForm> {
                   _crearItemBloc.add(
                     SaveNewItemEvent(
                       it: Item(
-                          category: categoriaTc.text,
-                          description: descripcionTc.text,
-                          name: nombreTc.text,
-                          ownerEmail: 'mariana@chavez.com',
-                          ownerName: 'Mariana Chavez',
-                          ownerPicture: 'what?',
-                          size: tallaTc.text,
-                          state: estadoTc.text,
+                        category: categoriaTc.text,
+                        description: descripcionTc.text,
+                        name: nombreTc.text,
+                        size: tallaTc.text,
+                        state: estadoTc.text,
                       ),
                     ),
                   );

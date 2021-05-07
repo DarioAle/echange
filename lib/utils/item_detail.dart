@@ -75,7 +75,7 @@ class _ItemDetailState extends State<ItemDetail> {
             padding: EdgeInsets.only(top: 10),
             width: MediaQuery.of(context).size.width,
             child: ListItemCard(
-                isOwn: false,
+                isOwn: this.widget.isOwn,
                 name: this.widget.name,
                 description: this.widget.description,
                 size: this.widget.size,
