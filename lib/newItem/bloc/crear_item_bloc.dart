@@ -29,7 +29,7 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
         _selectedPicture = await _getImage();
         yield PickedImageState(image: _selectedPicture);
       } catch (e) {
-        yield ErrorMessageState(errorMsg: "Error cargando la imagen.");
+        yield ErrorMessageState(errorMsg: "Error al tomar la imagen");
       }
     }
     //
@@ -48,7 +48,7 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
           yield ErrorMessageState(errorMsg: "Error al cargar la imagen");
         }
       } catch (e) {
-        yield ErrorMessageState(errorMsg: "Error guardando la noticia");
+        yield ErrorMessageState(errorMsg: "Error guardando la imagen");
       }
     }
   }
@@ -57,7 +57,7 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
   Future<bool> _saveItems(Item itm) async {
     try {
       print(itm.toJson());
-      await _cFirestore.collection("item").add(itm.toJson());
+      await _cFirestore.collection("yourItem").add(itm.toJson());
       return true;
     } catch (e) {
       print("Error: $e");
@@ -72,13 +72,13 @@ class CrearItemBloc extends Bloc<CrearItemEvent, CrearItemState> {
       // define upload task
       UploadTask task = FirebaseStorage.instance
           .ref(
-              "noticias/imagen_$stamp.png") // revisa que esta linea funcione despues
+              "pictures/imagen_$stamp.png") // revisa que esta linea funcione despues
           .putFile(_selectedPicture);
       // execute task
       await task;
       // recuperar url del documento subido
       return await task.storage
-          .ref("noticias/imagen_$stamp.png")
+          .ref("pictures/imagen_$stamp.png")
           .getDownloadURL();
     } on FirebaseException catch (e) {
       // e.g, e.code == 'canceled'

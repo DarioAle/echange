@@ -1,11 +1,14 @@
 import 'dart:io';
 
 import 'package:echange/menu/menu.dart';
+import 'package:echange/models/item.dart';
 import 'package:echange/newItem/bloc/crear_item_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemForm extends StatefulWidget {
+  ItemForm({Key key}) : super(key: key);
+
   @override
   _ItemFormState createState() => _ItemFormState();
 }
@@ -14,14 +17,13 @@ class _ItemFormState extends State<ItemForm> {
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   CrearItemBloc _crearItemBloc;
-  File selectedImage;
+  File imagen;
 
   var nombreTc = TextEditingController();
   var categoriaTc = TextEditingController();
   var descripcionTc = TextEditingController();
   var tallaTc = TextEditingController();
   var estadoTc = TextEditingController();
-  File imagen;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class _ItemFormState extends State<ItemForm> {
       child: BlocConsumer<CrearItemBloc, CrearItemState>(
         listener: (context, state) {
           if (state is PickedImageState) {
-            selectedImage = state.image;
+            imagen = state.image;
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(
@@ -48,6 +50,14 @@ class _ItemFormState extends State<ItemForm> {
             descripcionTc.clear();
             tallaTc.clear();
             estadoTc.clear();
+            imagen = null;
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  content: Text("Item guardado.."),
+                ),
+              );
           } else if (state is ErrorMessageState) {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
@@ -64,16 +74,16 @@ class _ItemFormState extends State<ItemForm> {
               child: CircularProgressIndicator(),
             );
           }
-          return _createForm(context);
+          return _createForm();
         },
       ),
     );
   }
 
   // Show the form
-  Scaffold _createForm(BuildContext context) {
+  Widget _createForm() {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       backgroundColor: Color.fromRGBO(242, 204, 143, 1),
       endDrawer: new Drawer(
         child: Menu(),
@@ -150,7 +160,9 @@ class _ItemFormState extends State<ItemForm> {
               MaterialButton(
                 child: Text("Agregar foto",
                     style: Theme.of(context).textTheme.bodyText1),
-                onPressed: () {},
+                onPressed: () {
+                  _crearItemBloc.add(PickImageEvent());
+                },
                 color: Color.fromRGBO(224, 122, 95, 1),
               ),
               SizedBox(height: 5),
@@ -174,7 +186,19 @@ class _ItemFormState extends State<ItemForm> {
                         .textTheme
                         .bodyText1
                         .copyWith(color: Colors.white)),
-                onPressed: () {},
+                onPressed: () {
+                  _crearItemBloc.add(
+                    SaveNewItemEvent(
+                      it: Item(
+                        category: categoriaTc.text,
+                        description: descripcionTc.text,
+                        name: nombreTc.text,
+                        size: tallaTc.text,
+                        state: estadoTc.text,
+                      ),
+                    ),
+                  );
+                },
                 color: Color.fromRGBO(61, 64, 91, 1),
               ),
               MaterialButton(
