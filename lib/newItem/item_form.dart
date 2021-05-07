@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:echange/menu/menu.dart';
+import 'package:echange/newItem/bloc/crear_item_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemForm extends StatefulWidget {
   @override
@@ -11,15 +13,65 @@ class ItemForm extends StatefulWidget {
 class _ItemFormState extends State<ItemForm> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  var nombre = TextEditingController();
-  var categoria = TextEditingController();
-  var descripcion = TextEditingController();
-  var talla = TextEditingController();
-  var estado = TextEditingController();
+  CrearItemBloc _crearItemBloc;
+  File selectedImage;
+
+  var nombreTc = TextEditingController();
+  var categoriaTc = TextEditingController();
+  var descripcionTc = TextEditingController();
+  var tallaTc = TextEditingController();
+  var estadoTc = TextEditingController();
   File imagen;
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) {
+        _crearItemBloc = CrearItemBloc();
+        return _crearItemBloc;
+      },
+      child: BlocConsumer<CrearItemBloc, CrearItemState>(
+        listener: (context, state) {
+          if (state is PickedImageState) {
+            selectedImage = state.image;
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  content: Text("Imagen seleccionada"),
+                ),
+              );
+          } else if (state is SavedNewState) {
+            // TODO call other bloc to update my items
+            nombreTc.clear();
+            categoriaTc.clear();
+            descripcionTc.clear();
+            tallaTc.clear();
+            estadoTc.clear();
+          } else if (state is ErrorMessageState) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  content: Text("${state.errorMsg}"),
+                ),
+              );
+          }
+        },
+        builder: (context, state) {
+          if (state is LoadingState) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return _createForm(context);
+        },
+      ),
+    );
+  }
+
+  // Show the form
+  Scaffold _createForm(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Color.fromRGBO(242, 204, 143, 1),
@@ -44,7 +96,7 @@ class _ItemFormState extends State<ItemForm> {
                       .copyWith(fontSize: 25)),
               SizedBox(height: 10),
               TextField(
-                controller: nombre,
+                controller: nombreTc,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -54,7 +106,7 @@ class _ItemFormState extends State<ItemForm> {
               ),
               SizedBox(height: 10),
               TextField(
-                controller: descripcion,
+                controller: descripcionTc,
                 maxLines: 2,
                 decoration: InputDecoration(
                     filled: true,
@@ -65,7 +117,7 @@ class _ItemFormState extends State<ItemForm> {
               ),
               SizedBox(height: 10),
               TextField(
-                controller: descripcion,
+                controller: descripcionTc,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -76,7 +128,7 @@ class _ItemFormState extends State<ItemForm> {
               ),
               SizedBox(height: 10),
               TextField(
-                controller: talla,
+                controller: tallaTc,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -86,7 +138,7 @@ class _ItemFormState extends State<ItemForm> {
               ),
               SizedBox(height: 10),
               TextField(
-                controller: estado,
+                controller: estadoTc,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,

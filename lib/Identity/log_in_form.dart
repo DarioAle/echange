@@ -1,8 +1,7 @@
-import 'package:auth_buttons/res/buttons/google_auth_button.dart';
+import 'package:auth_buttons/auth_buttons.dart';
 import 'package:echange/Identity/register.dart';
 import 'package:echange/home/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/login_bloc.dart';
 
@@ -112,10 +111,10 @@ class _LogInFormState extends State<LogInForm> {
           Padding(
               padding: EdgeInsets.only(top: 15),
               child: GoogleAuthButton(
-                borderRadius: 10.0,
+                // borderRadius: 10.0,
                 text: "Ingresa con Google",
                 darkMode: true,
-                buttonColor: Color.fromRGBO(61, 64, 91, 1),
+                // buttonColor: Color.fromRGBO(61, 64, 91, 1),
                 onPressed: () {},
               )),
           Padding(
