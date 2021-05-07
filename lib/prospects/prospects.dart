@@ -11,7 +11,7 @@ class Prospects extends StatefulWidget {
 }
 
 class _ProspectsState extends State<Prospects> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {

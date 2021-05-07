@@ -17,7 +17,7 @@ class _ProfileGridState extends State<ProfileGrid> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       backgroundColor: Color.fromRGBO(242, 204, 143, 1),
       endDrawer: new Drawer(
         child: Menu(),

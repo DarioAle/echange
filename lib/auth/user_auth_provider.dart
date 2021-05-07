@@ -21,11 +21,15 @@ class UserAuthProvider {
 
   // anonimo
   Future<void> anonymousSignIn() async {
-    final anonymousUser = (await _auth.signInAnonymously()).user;
-    await anonymousUser.updateProfile(
-      displayName: "${anonymousUser.uid.substring(0, 5)}_Invitado",
-    );
-    await anonymousUser.reload();
+    try {
+      final anonymousUser = (await _auth.signInAnonymously()).user;
+      await anonymousUser.updateProfile(
+        displayName: "${anonymousUser.uid.substring(0, 5)}_Invitado",
+      );
+      await anonymousUser.reload();
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> signInWithGoogle() async {
