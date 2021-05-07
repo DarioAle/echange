@@ -119,7 +119,7 @@ class _ListItemCardState extends State<ListItemCard> {
                     alignment: Alignment.center,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
+                      child: Image.network(
                         this.widget.image,
                         fit: BoxFit.contain,
                         cacheHeight: 230,

@@ -16,3 +16,8 @@ class ForgotPasswordEvent extends LoginEvent {
   @override
   List<Object> get props => [];
 }
+
+class LoginAnonymousEvent extends LoginEvent {
+  @override
+  List<Object> get props => [];
+}

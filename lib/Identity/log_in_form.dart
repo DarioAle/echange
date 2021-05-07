@@ -2,6 +2,8 @@ import 'package:auth_buttons/auth_buttons.dart';
 import 'package:echange/Identity/register.dart';
 import 'package:echange/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:echange/bloc/auth_bloc.dart';
 
 import 'bloc/login_bloc.dart';
 
@@ -15,6 +17,11 @@ class LogInForm extends StatefulWidget {
 class _LogInFormState extends State<LogInForm> {
   LoginBloc _loginBloc;
   bool _showLoading = false;
+
+  void _anonymousLogIn(bool _) {
+    print("anonimo");
+    _loginBloc.add(LoginAnonymousEvent());
+  }
 
   void _googleLogIn(bool _) {
     // invocar al login de firebase con el bloc
@@ -87,69 +94,115 @@ class _LogInFormState extends State<LogInForm> {
                   floatingLabelBehavior: FloatingLabelBehavior.auto,
                 )),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 15),
-            child: MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              height: 50,
-              elevation: 2,
-              color: Color.fromRGBO(61, 64, 91, 1),
-              child: Text(
-                "Ingresa anonimamente",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1
-                    .copyWith(color: Colors.white, fontSize: 20),
-              ),
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Home()));
+          SafeArea(
+              child: BlocProvider(
+            create: (context) {
+              _loginBloc = LoginBloc();
+              return _loginBloc;
+            },
+            child: BlocConsumer<LoginBloc, LoginState>(
+              listener: (context, state) {
+                if (state is LoginErrorState) {
+                  _showLoading = false;
+                  showDialog(
+                    context: context,
+                    builder: (_) {
+                      return AlertDialog(
+                        content: Text("${state.error}"),
+                        actions: [
+                          MaterialButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text("OK"),
+                          )
+                        ],
+                      );
+                    },
+                  );
+                } else if (state is LoginLoadingState) {
+                  _showLoading = !_showLoading;
+                } else if (state is LoginSuccessState) {
+                  BlocProvider.of<AuthBloc>(context)
+                      .add(VerifyAuthenticationEvent());
+                }
+              },
+              builder: (context, state) {
+                return (Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 15),
+                      child: MaterialButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        height: 50,
+                        elevation: 2,
+                        color: Color.fromRGBO(61, 64, 91, 1),
+                        child: Text(
+                          "Ingresa anonimamente",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              .copyWith(color: Colors.white, fontSize: 20),
+                        ),
+                        onPressed: () {
+                          _loginBloc.add(LoginAnonymousEvent());
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => Home()));
+                        },
+                      ),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.only(top: 15),
+                        child: GoogleAuthButton(
+                          // borderRadius: 10.0,
+                          text: "Ingresa con Google",
+                          darkMode: true,
+                          // buttonColor: Color.fromRGBO(61, 64, 91, 1),
+                          onPressed: () {
+                            _loginBloc.add(LoginWithGoogleEvent());
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Home()));
+                          },
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Text(
+                        "¿Olvidaste tu contraseña?",
+                        style: Theme.of(context).textTheme.bodyText1.copyWith(
+                              color: Colors.white,
+                            ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40, bottom: 10),
+                      child: Text(
+                        "¿Aún no tienes cuenta?",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Register())),
+                      child: Text(
+                        "REGISTRATE",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ));
               },
             ),
-          ),
-          Padding(
-              padding: EdgeInsets.only(top: 15),
-              child: GoogleAuthButton(
-                // borderRadius: 10.0,
-                text: "Ingresa con Google",
-                darkMode: true,
-                // buttonColor: Color.fromRGBO(61, 64, 91, 1),
-                onPressed: () {},
-              )),
-          Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: Text(
-              "¿Olvidaste tu contraseña?",
-              style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    color: Colors.white,
-                  ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 40, bottom: 10),
-            child: Text(
-              "¿Aún no tienes cuenta?",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          GestureDetector(
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Register())),
-            child: Text(
-              "REGISTRATE",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ),
+          ))
         ]),
       ),
     );

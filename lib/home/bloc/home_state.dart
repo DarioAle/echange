@@ -11,13 +11,13 @@ class HomeInitial extends HomeState {}
 
 class LoadingState extends HomeState {}
 
-// class LoadedNewsState extends HomeState {
-//   final List<Item> noticiasList;
+class LoadedItemsState extends HomeState {
+  final List<Item> itemList;
 
-//   LoadedNewsState({@required this.noticiasList});
-//   @override
-//   List<Object> get props => [noticiasList];
-// }
+  LoadedItemsState({@required this.itemList});
+  @override
+  List<Object> get props => [itemList];
+}
 
 class ErrorMessageState extends HomeState {
   final String errorMsg;
